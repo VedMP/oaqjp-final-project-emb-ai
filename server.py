@@ -23,12 +23,13 @@ def detect_emotion():
     text_to_analyze= request.args.get('textToAnalyze')
     result_dict = emotion_detector(text_to_analyze)
     if result_dict['dominant_emotion'] is None:
-        return "Invalid text! Please try again"
+        return "Invalid text! Please try again!"
 
     #Cretes a formmated string for giving the user the response in formatted manor
-    response = f"""For the given statement, the system reponse is 'anger': {result_dict['anger']}, 
+    response = f"""For the given statement, the system reponse is 'anger': {result_dict['anger']},
     'disgust': {result_dict['disgust']}, 'fear' : {result_dict['fear']}, 'joy' : {result_dict['joy']},
-    'sadness' : {result_dict['sadness']}. The dominant emotion is {result_dict['dominant_emotion']}"""
+    'sadness' : {result_dict['sadness']}. The dominant emotion is 
+    {result_dict['dominant_emotion']}"""
     return response
 
 if __name__ == "__main__":
